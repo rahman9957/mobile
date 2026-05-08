@@ -22,7 +22,7 @@ export default function RootLayout() {
     const unsubscribe = onAuthStateChanged(auth, async (u) => {
       if (u) {
         try {
-          // 🔥 ambil data user dari Firestore
+          // mengambil data user dari Firestore
           const docRef = doc(db, "users", u.uid);
           const snap = await getDoc(docRef);
 
@@ -46,7 +46,7 @@ export default function RootLayout() {
     return unsubscribe;
   }, []);
 
-  // ⏳ loading dulu biar gak flicker
+  // loading
   if (loading) return null;
 
   return (
@@ -64,7 +64,7 @@ export default function RootLayout() {
         ) : user.role === "pengurus" ? (
           <Stack.Screen name="pengurus" options={{ headerShown: false }} />
         ) : (
-          // fallback kalau role aneh
+          
           <Stack.Screen name="login" options={{ headerShown: false }} />
         )}
       </Stack>
