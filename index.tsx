@@ -236,7 +236,7 @@ export default function Home() {
         <Text style={styles.buttonText}>Simpan Laporan</Text>
       </TouchableOpacity>
 
-      {/* 🔥 LOGOUT */}
+      {/* LOGOUT */}
       <TouchableOpacity
         style={[styles.button, { backgroundColor: "#E53935" }]}
         onPress={handleLogout}
