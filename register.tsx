@@ -28,7 +28,7 @@ export default function Register() {
     }
 
     try {
-      // 🔥 BUAT AKUN AUTH
+
       const userCredential = await createUserWithEmailAndPassword(
         auth,
         email,
@@ -37,7 +37,6 @@ export default function Register() {
 
       const user = userCredential.user;
 
-      // 🔥 SIMPAN KE FIRESTORE
       await setDoc(doc(db, "users", user.uid), {
         nama,
         email,
