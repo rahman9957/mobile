@@ -28,7 +28,7 @@ export default function Login() {
     }
 
     try {
-      // 🔥 LOGIN FIREBASE
+      
       const userCredential = await signInWithEmailAndPassword(
         auth,
         email,
@@ -37,7 +37,7 @@ export default function Login() {
 
       const user = userCredential.user;
 
-      // 🔥 AMBIL DATA USER (ROLE)
+      //  DATA USER (ROLE)
       const docRef = doc(db, "users", user.uid);
       const docSnap = await getDoc(docRef);
 
@@ -51,7 +51,6 @@ export default function Login() {
 
       console.log("Role:", role);
 
-      // 🔥 REDIRECT SESUAI ROLE
       if (role === "relawan") {
         router.replace("/(tabs)");
       } else if (role === "pengasuh") {
